@@ -177,6 +177,16 @@
         }
     }
     [self checkStatusOfPlayer];
+    
+  
+    [UIView animateWithDuration:2.5 delay:(0.2) options:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut) animations: ^{
+        self.statusLabel.alpha = 0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:2.5 animations:^{
+            self.statusLabel.alpha = 1;
+        }];
+    }];
+   
  
 }
 
@@ -240,6 +250,8 @@
     if (self.myPlayer) {
         self.myPlayer = nil;
     }
+    
+    [self.statusLabel.layer removeAllAnimations];
     
 }
 
