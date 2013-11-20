@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AE1CADD017F5455000542C1D"
-            BuildableName = "AudioTest.app"
-            BlueprintName = "AudioTest"
-            ReferencedContainer = "container:AudioTest.xcodeproj">
+            BuildableName = "Fiji Radio.app"
+            BlueprintName = "Fiji Radio"
+            ReferencedContainer = "container:Fiji Radio.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AE1CADD017F5455000542C1D"
-            BuildableName = "AudioTest.app"
-            BlueprintName = "AudioTest"
-            ReferencedContainer = "container:AudioTest.xcodeproj">
+            BuildableName = "Fiji Radio.app"
+            BlueprintName = "Fiji Radio"
+            ReferencedContainer = "container:Fiji Radio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

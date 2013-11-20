@@ -30,6 +30,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityOutlet;
 @property (strong, nonatomic) NSString *stationName;
+@property (nonatomic, strong) NSString *homePage;
 @property (strong, nonatomic) IBOutlet UILabel *statusLabel;
 
 
