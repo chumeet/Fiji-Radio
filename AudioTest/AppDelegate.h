@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "ViewController.h"
+#include "iPadViewController.h"
+#include "TableViewController.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) ViewController *myController;
+@property (strong, nonatomic) iPadViewController *iPadController;
+@property (strong ,nonatomic) TableViewController *tbController;
+
 
 @end

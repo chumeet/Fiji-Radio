@@ -8,6 +8,7 @@
 
 #import "TableViewController.h"
 #import "ViewController.h"
+#include "AppDelegate.h"
 
 @interface TableViewController ()
 
@@ -19,7 +20,17 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
      [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+  
     
+}
+
+-(void) animate {
+    [UIView animateWithDuration:2.0 delay:(0.0) options:(UIViewAnimationCurveEaseInOut | UIViewAnimationOptionAllowAnimatedContent | UIViewAnimationOptionAutoreverse) animations:^{
+        self.tableView.alpha = 0.0;
+        [UIView setAnimationRepeatCount:2.0];
+    } completion:^(BOOL finished) {
+        self.tableView.alpha = 1.0;
+    }];
     
 }
 
@@ -37,6 +48,7 @@
     
     [self getStations];
     [self getListeners];
+    
     
     [self.tableView reloadData];
     
@@ -123,10 +135,20 @@
     //Get Listner Count
     [self getListeners];
     
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication]delegate];
+    appDelegate.tbController = self;
+    
+    UIFont *menloFont = [UIFont fontWithName:@"Menlo" size:13];
+   
+    
     UIRefreshControl *refresh = [[UIRefreshControl alloc]init];
     refresh.attributedTitle = [[NSAttributedString alloc]initWithString:@"Pull to refresh"];
     [refresh addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refresh;
+    
+    if ([self.radioStations isKindOfClass:[NSMutableArray class]]) {
+        
+    }
     
 }
 
@@ -156,6 +178,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     RadioStation *currentStation = [self.radioStations objectAtIndex:indexPath.row];
@@ -163,6 +186,7 @@
     cell.textLabel.textColor = [UIColor lightGrayColor];
     ((UILabel *)[cell viewWithTag:1]).text = [currentStation name];
     ((UILabel *)[cell viewWithTag:3]).text = [currentStation stationHomepage];
+    ((UILabel *)[cell viewWithTag:2]).text = [NSString stringWithFormat:@"unprovided"];
     
     cell.detailTextLabel.text = [currentStation stationHomepage];
     
@@ -195,6 +219,7 @@
     if ([currentStation.name  isEqual: @"Tambura Bhajan Radio"]) {
         ((UILabel *)[cell viewWithTag:2]).text =  [NSString stringWithFormat:@"unlimited"] ;
     }
+    
 
     
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RadioStation.h"
 
+
 @interface TableViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *radioStations;
@@ -21,6 +22,7 @@
 -(void) refreshView:(UIRefreshControl *)refresh;
 -(void) getListeners;
 -(void) getStations;
+-(void) animate;
 
 
 @end

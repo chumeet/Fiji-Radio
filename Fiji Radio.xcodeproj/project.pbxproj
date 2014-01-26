@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		387FC79F188A1215006B8AFF /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 387FC79E188A1215006B8AFF /* slider.png */; };
 		38CB4D2217FDF0C5005B24A8 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38CB4D2117FDF0C5005B24A8 /* iPad.storyboard */; };
 		38CB4D2517FDFB2E005B24A8 /* iPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CB4D2417FDFB2E005B24A8 /* iPadViewController.m */; };
 		38CB4D3017FE3279005B24A8 /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 38CB4D2A17FE3279005B24A8 /* 120x120.png */; };
@@ -24,10 +25,15 @@
 		38CB4D4417FE3A20005B24A8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38CB4D4317FE3A1F005B24A8 /* Default-568h@2x.png */; };
 		38CB4D4717FE3B32005B24A8 /* ipadRetina.png in Resources */ = {isa = PBXBuildFile; fileRef = 38CB4D4517FE3B32005B24A8 /* ipadRetina.png */; };
 		38CB4D4A17FE3BE4005B24A8 /* ipadNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 38CB4D4917FE3BE4005B24A8 /* ipadNormal.png */; };
+		38CE44DD1877A7DC0014A296 /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 38CE44DC1877A7DB0014A296 /* navbar.png */; };
+		38CE44DF1877A85C0014A296 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38CE44DE1877A85C0014A296 /* background.jpg */; };
 		38D5920117FCFEA500BB1436 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D5920017FCFEA500BB1436 /* speaker.png */; };
 		38D5920B17FD02AF00BB1436 /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D5920917FD02AF00BB1436 /* Pause.png */; };
 		38D5920D17FD04C500BB1436 /* spakeroff.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D5920C17FD04C500BB1436 /* spakeroff.png */; };
 		38D5920F17FD088400BB1436 /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D5920E17FD088400BB1436 /* Play.png */; };
+		38F238DF187BA81A0067CA0C /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F238DE187BA81A0067CA0C /* UIImage+animatedGIF.m */; };
+		38F238E1187BA82D0067CA0C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F238E0187BA82D0067CA0C /* ImageIO.framework */; };
+		38F238E3187BA8FD0067CA0C /* equalizer.gif in Resources */ = {isa = PBXBuildFile; fileRef = 38F238E2187BA8FD0067CA0C /* equalizer.gif */; };
 		AE1CADD517F5455000542C1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1CADD417F5455000542C1D /* Foundation.framework */; };
 		AE1CADD717F5455000542C1D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1CADD617F5455000542C1D /* CoreGraphics.framework */; };
 		AE1CADD917F5455000542C1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1CADD817F5455000542C1D /* UIKit.framework */; };
@@ -42,7 +48,6 @@
 		AE1CADF617F5455000542C1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1CADD817F5455000542C1D /* UIKit.framework */; };
 		AE1CADFE17F5455000542C1D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE1CADFC17F5455000542C1D /* InfoPlist.strings */; };
 		AE1CAE0017F5455000542C1D /* AudioTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1CADFF17F5455000542C1D /* AudioTestTests.m */; };
-		AE1E28C7182A17090038B60B /* navbar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE1E28C6182A17090038B60B /* navbar.jpg */; };
 		AEF7F9B917F7C08000BF7DBE /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF7F9B817F7C08000BF7DBE /* TableViewController.m */; };
 		AEF7F9BC17FB601500BF7DBE /* RadioStation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF7F9BB17FB601500BF7DBE /* RadioStation.m */; };
 /* End PBXBuildFile section */
@@ -58,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		387FC79E188A1215006B8AFF /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
 		38CB4D2117FDF0C5005B24A8 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		38CB4D2317FDFB2E005B24A8 /* iPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadViewController.h; sourceTree = "<group>"; };
 		38CB4D2417FDFB2E005B24A8 /* iPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadViewController.m; sourceTree = "<group>"; };
@@ -76,10 +82,16 @@
 		38CB4D4317FE3A1F005B24A8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		38CB4D4517FE3B32005B24A8 /* ipadRetina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipadRetina.png; sourceTree = "<group>"; };
 		38CB4D4917FE3BE4005B24A8 /* ipadNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipadNormal.png; sourceTree = "<group>"; };
+		38CE44DC1877A7DB0014A296 /* navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar.png; sourceTree = "<group>"; };
+		38CE44DE1877A85C0014A296 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		38D5920017FCFEA500BB1436 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
 		38D5920917FD02AF00BB1436 /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause.png; sourceTree = "<group>"; };
 		38D5920C17FD04C500BB1436 /* spakeroff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spakeroff.png; sourceTree = "<group>"; };
 		38D5920E17FD088400BB1436 /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play.png; sourceTree = "<group>"; };
+		38F238DD187BA81A0067CA0C /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		38F238DE187BA81A0067CA0C /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		38F238E0187BA82D0067CA0C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		38F238E2187BA8FD0067CA0C /* equalizer.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = equalizer.gif; sourceTree = "<group>"; };
 		AE1CADD117F5455000542C1D /* Fiji Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fiji Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1CADD417F5455000542C1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE1CADD617F5455000542C1D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,7 +111,6 @@
 		AE1CADFB17F5455000542C1D /* Fiji RadioTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fiji RadioTests-Info.plist"; sourceTree = "<group>"; };
 		AE1CADFD17F5455000542C1D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AE1CADFF17F5455000542C1D /* AudioTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioTestTests.m; sourceTree = "<group>"; };
-		AE1E28C6182A17090038B60B /* navbar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = navbar.jpg; path = ../../navbar.jpg; sourceTree = "<group>"; };
 		AEF7F9B717F7C08000BF7DBE /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		AEF7F9B817F7C08000BF7DBE /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		AEF7F9BA17FB601500BF7DBE /* RadioStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioStation.h; sourceTree = "<group>"; };
@@ -111,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38F238E1187BA82D0067CA0C /* ImageIO.framework in Frameworks */,
 				AE1CADD717F5455000542C1D /* CoreGraphics.framework in Frameworks */,
 				AE1CADD917F5455000542C1D /* UIKit.framework in Frameworks */,
 				AE1CADD517F5455000542C1D /* Foundation.framework in Frameworks */,
@@ -181,6 +193,7 @@
 		AE1CADD317F5455000542C1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38F238E0187BA82D0067CA0C /* ImageIO.framework */,
 				AE1CADD417F5455000542C1D /* Foundation.framework */,
 				AE1CADD617F5455000542C1D /* CoreGraphics.framework */,
 				AE1CADD817F5455000542C1D /* UIKit.framework */,
@@ -194,23 +207,28 @@
 			children = (
 				38CB4D3E17FE3719005B24A8 /* Launch Images */,
 				38CB4D2917FE325D005B24A8 /* icons */,
-				AE1CADE317F5455000542C1D /* AppDelegate.h */,
+				387FC79E188A1215006B8AFF /* slider.png */,
 				38D5920C17FD04C500BB1436 /* spakeroff.png */,
-				AE1CADE417F5455000542C1D /* AppDelegate.m */,
+				38CE44DE1877A85C0014A296 /* background.jpg */,
+				38D5920917FD02AF00BB1436 /* Pause.png */,
+				38F238E2187BA8FD0067CA0C /* equalizer.gif */,
+				38CE44DC1877A7DB0014A296 /* navbar.png */,
+				38D5920E17FD088400BB1436 /* Play.png */,
+				38D5920017FCFEA500BB1436 /* speaker.png */,
 				AE1CADE617F5455000542C1D /* Main.storyboard */,
 				38CB4D2117FDF0C5005B24A8 /* iPad.storyboard */,
-				38CB4D2317FDFB2E005B24A8 /* iPadViewController.h */,
-				38CB4D2417FDFB2E005B24A8 /* iPadViewController.m */,
-				38D5920917FD02AF00BB1436 /* Pause.png */,
-				38D5920E17FD088400BB1436 /* Play.png */,
-				AE1E28C6182A17090038B60B /* navbar.jpg */,
-				38D5920017FCFEA500BB1436 /* speaker.png */,
+				AE1CADE317F5455000542C1D /* AppDelegate.h */,
+				AE1CADE417F5455000542C1D /* AppDelegate.m */,
 				AEF7F9B717F7C08000BF7DBE /* TableViewController.h */,
 				AEF7F9B817F7C08000BF7DBE /* TableViewController.m */,
 				AE1CADE917F5455000542C1D /* ViewController.h */,
 				AE1CADEA17F5455000542C1D /* ViewController.m */,
+				38CB4D2317FDFB2E005B24A8 /* iPadViewController.h */,
+				38CB4D2417FDFB2E005B24A8 /* iPadViewController.m */,
 				AEF7F9BA17FB601500BF7DBE /* RadioStation.h */,
 				AEF7F9BB17FB601500BF7DBE /* RadioStation.m */,
+				38F238DD187BA81A0067CA0C /* UIImage+animatedGIF.h */,
+				38F238DE187BA81A0067CA0C /* UIImage+animatedGIF.m */,
 				AE1CADEC17F5455000542C1D /* Images.xcassets */,
 				AE1CADDB17F5455000542C1D /* Supporting Files */,
 			);
@@ -329,11 +347,12 @@
 				38D5920F17FD088400BB1436 /* Play.png in Resources */,
 				38CB4D4417FE3A20005B24A8 /* Default-568h@2x.png in Resources */,
 				38CB4D3117FE3279005B24A8 /* 29x29.png in Resources */,
-				AE1E28C7182A17090038B60B /* navbar.jpg in Resources */,
 				38CB4D4017FE3980005B24A8 /* LaunchImageiPhoneRetina4inch.png in Resources */,
 				38CB4D3417FE3279005B24A8 /* 80x80.png in Resources */,
 				38CB4D2217FDF0C5005B24A8 /* iPad.storyboard in Resources */,
+				38CE44DF1877A85C0014A296 /* background.jpg in Resources */,
 				38CB4D3017FE3279005B24A8 /* 120x120.png in Resources */,
+				38CE44DD1877A7DC0014A296 /* navbar.png in Resources */,
 				38CB4D3517FE3279005B24A8 /* 114x114.png in Resources */,
 				38CB4D4A17FE3BE4005B24A8 /* ipadNormal.png in Resources */,
 				38CB4D3217FE3279005B24A8 /* 57x57.png in Resources */,
@@ -341,11 +360,13 @@
 				38CB4D3D17FE35DB005B24A8 /* 76x76.png in Resources */,
 				38CB4D3317FE3279005B24A8 /* 58x58.png in Resources */,
 				38D5920B17FD02AF00BB1436 /* Pause.png in Resources */,
+				387FC79F188A1215006B8AFF /* slider.png in Resources */,
 				AE1CADED17F5455000542C1D /* Images.xcassets in Resources */,
 				AE1CADDF17F5455000542C1D /* InfoPlist.strings in Resources */,
 				38CB4D3817FE3508005B24A8 /* 40x40.png in Resources */,
 				38D5920D17FD04C500BB1436 /* spakeroff.png in Resources */,
 				38CB4D4217FE39B6005B24A8 /* LaunchImageiPhoneRetina.png in Resources */,
+				38F238E3187BA8FD0067CA0C /* equalizer.gif in Resources */,
 				38CB4D3C17FE35DB005B24A8 /* 60x60.png in Resources */,
 				38CB4D3917FE3508005B24A8 /* 152x152.png in Resources */,
 				38D5920117FCFEA500BB1436 /* speaker.png in Resources */,
@@ -374,6 +395,7 @@
 				AE1CADE117F5455000542C1D /* main.m in Sources */,
 				AEF7F9BC17FB601500BF7DBE /* RadioStation.m in Sources */,
 				AEF7F9B917F7C08000BF7DBE /* TableViewController.m in Sources */,
+				38F238DF187BA81A0067CA0C /* UIImage+animatedGIF.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,8 +462,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sumeet kumar (K45RCK7XT9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sumeet Kumar (K45RCK7XT9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sumeet Kumar (K45RCK7XT9)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -459,7 +481,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "96FE6B60-D2FD-4D12-A55D-4ED5EE8BE733";
+				PROVISIONING_PROFILE = "8A7BBA01-543D-42AA-992A-78DA5373067C";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -481,8 +503,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sumeet kumar (K45RCK7XT9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sumeet Kumar (K45RCK7XT9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sumeet Kumar (K45RCK7XT9)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -493,7 +515,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "96FE6B60-D2FD-4D12-A55D-4ED5EE8BE733";
+				PROVISIONING_PROFILE = "8A7BBA01-543D-42AA-992A-78DA5373067C";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -502,14 +524,15 @@
 		AE1CAE0417F5455000542C1D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sumeet Kumar (K45RCK7XT9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sumeet Kumar (K45RCK7XT9)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AudioTest/Fiji Radio-Prefix.pch";
 				INFOPLIST_FILE = "AudioTest/Fiji Radio-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Fiji Radio";
-				PROVISIONING_PROFILE = "75171573-3412-4CBC-8D41-F6DCA4B6EDD4";
+				PROVISIONING_PROFILE = "8A7BBA01-543D-42AA-992A-78DA5373067C";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -518,14 +541,15 @@
 		AE1CAE0517F5455000542C1D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sumeet Kumar (K45RCK7XT9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sumeet Kumar (K45RCK7XT9)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AudioTest/Fiji Radio-Prefix.pch";
 				INFOPLIST_FILE = "AudioTest/Fiji Radio-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Fiji Radio";
-				PROVISIONING_PROFILE = "75171573-3412-4CBC-8D41-F6DCA4B6EDD4";
+				PROVISIONING_PROFILE = "8A7BBA01-543D-42AA-992A-78DA5373067C";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -549,6 +573,7 @@
 				);
 				INFOPLIST_FILE = "AudioTestTests/Fiji RadioTests-Info.plist";
 				PRODUCT_NAME = "Fiji RadioTests";
+				PROVISIONING_PROFILE = "E3AE18AE-17BE-46DC-916C-7FD385DCF12E";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -568,6 +593,7 @@
 				GCC_PREFIX_HEADER = "AudioTest/AudioTest-Prefix.pch";
 				INFOPLIST_FILE = "AudioTestTests/Fiji RadioTests-Info.plist";
 				PRODUCT_NAME = "Fiji RadioTests";
+				PROVISIONING_PROFILE = "E3AE18AE-17BE-46DC-916C-7FD385DCF12E";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

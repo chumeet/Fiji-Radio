@@ -18,6 +18,8 @@
     float currentProgressView;
 }
 
+@property (strong, nonatomic) IBOutlet UIImageView *animationImage;
+@property (strong, nonatomic) IBOutlet UILabel *homePageLabel;
 @property (nonatomic, strong) NSMutableData *audioData;
 @property (nonatomic, strong) NSURL *audioURL;
 @property (nonatomic,strong) NSURLRequest *audioRequest;
@@ -30,8 +32,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityOutlet;
 @property (strong, nonatomic) NSString *stationName;
-@property (nonatomic, strong) NSString *homePage;
 @property (strong, nonatomic) IBOutlet UILabel *statusLabel;
+@property (nonatomic, strong) NSString *homePage;
+@property (strong, nonatomic) IBOutlet UILabel *connectionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *homeStream;
+
 
 
 -(IBAction)downloadData:(id)sender;
@@ -43,4 +48,6 @@
 -(void) audioSessionInterrupted:(NSNotification *) notification;
 -(void)playAudio:(NSURL *) url;
 -(void)pauseAudio;
+-(void) animate;
+
 @end

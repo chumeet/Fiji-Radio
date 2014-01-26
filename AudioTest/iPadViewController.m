@@ -7,6 +7,8 @@
 //
 
 #import "iPadViewController.h"
+#import "UIImage+animatedGIF.h"
+#include "AppDelegate.h"
 
 @interface iPadViewController ()
 
@@ -14,19 +16,43 @@
 
 @implementation iPadViewController
 
+-(void) animate {
+    
+    [UIView animateWithDuration:5.5 delay:(0.0) options:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAutoreverse ) animations: ^{
+        self.statusLabel.alpha =  1.0;
+        self.statusLabel.frame = CGRectMake(170, 387, 180, 33);
+        [UIView setAnimationRepeatCount:5.5];
+        NSLog(@"in animation");
+        
+    } completion:^(BOOL finished) {
+        self.statusLabel.alpha = 1.0;
+        self.statusLabel.frame = CGRectMake(439, 387, 180, 33);
+    }];
+    
+
+    
+    
+}
+
 -(void) viewWillAppear:(BOOL)animated {
     [self.view setBackgroundColor:[UIColor blackColor]];
     [[UIApplication sharedApplication]beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
-    self.volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake( 273, 438, 210, 60)];
-    //    [self.volumeView setVolumeThumbImage:[UIImage imageNamed:@"slider.png"] forState:UIControlStateNormal];
-    [self.volumeView setShowsRouteButton:YES];
-    [self.view addSubview:self.volumeView];
+    
+    self.volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake( 273, 448, 210, 60)];
     self.currentAudioSession = [AVAudioSession sharedInstance];
+    [self.volumeView setShowsRouteButton:YES];
+    UIImage *sliderImage = [UIImage imageNamed:@"slider.png"];
+    UIImage *smallSlider = [UIImage imageWithCGImage:sliderImage.CGImage scale:4 orientation:sliderImage.imageOrientation];
+    [self.volumeView setVolumeThumbImage:smallSlider forState:UIControlStateNormal];
+    [self.view addSubview:self.volumeView];
     [self.nameLabel setText:self.stationName];
+    [self.homePageLabel setText:self.homePage];
     
     
 }
+
+
 - (void)viewWillDisappear:(BOOL)animated {
     
     // Turn off remote control event delivery
@@ -37,8 +63,8 @@
     
     [super viewWillDisappear:animated];
 }
-
 -(void) viewDidAppear:(BOOL)animated {
+    
     [[UIApplication sharedApplication]beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
 }
@@ -71,6 +97,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication]delegate];
+    appDelegate.iPadController = self;
     self.audioData = [[NSMutableData alloc]init];
     [self.activityOutlet setHidesWhenStopped:YES];
     self.musicController = [MPMusicPlayerController iPodMusicPlayer];
@@ -78,6 +106,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(audioSessionInterrupted:)name:AVAudioSessionInterruptionNotification object:nil];
+    
+ 
     
     
 }
@@ -91,8 +121,8 @@
     
     if (![userInfo valueForKey:AVAudioSessionInterruptionOptionKey]) {
         NSLog(@"Began Interruption");
-        self.statusLabel.text = @"phone call";
         self.myPlayer = nil;
+        self.connectionLabel.text = @"phone call";
     }
     
     NSLog(@"Notifiction: %@",[notification name]);
@@ -106,7 +136,7 @@
         }
         
         [self playAudio:self.audioURL];
-        
+        [self animate];
     }
 }
 
@@ -178,14 +208,7 @@
     }
     [self checkStatusOfPlayer];
     
-    [UIView animateWithDuration:2.5 delay:(0.2) options:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut) animations: ^{
-        self.statusLabel.alpha = 0;
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:2.5 animations:^{
-            self.statusLabel.alpha = 1;
-        }];
-    }];
-    
+    [self animate];
     
 }
 
@@ -196,11 +219,9 @@
     dispatch_async(taskQ,   ^{
         while (self.myPlayer.status == AVPlayerStatusUnknown) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.statusLabel.text = @"connecting";
+                self.connectionLabel.text = @"connecting";
                 
             });
-            
-            
             NSLog(@"Player not ready. %f", [self.currentAudioSession sampleRate]);
         }
         
@@ -210,17 +231,19 @@
             [self.currentAudioSession setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
             [self.activityOutlet stopAnimating];
             [self.myPlayer play];
-            self.statusLabel.text = [NSString stringWithFormat:@"streaming"];
+            self.statusLabel.text = [NSString stringWithFormat:@"streaming - %iHz", (int)[self.currentAudioSession sampleRate]];
+            self.connectionLabel.text = @"";
+            self.homeStream.text = [NSString stringWithFormat:@"streaming: %@ - %iHz",[self.stationName lowercaseString], (int)[self.currentAudioSession sampleRate]];
+            NSURL *animationURL = [[NSBundle mainBundle] URLForResource:@"equalizer" withExtension:@"gif"];
+            self.animationImage.image = [UIImage animatedImageWithAnimatedGIFData:[NSData dataWithContentsOfURL:animationURL]];
             if (error){
                 NSLog(@"%@",[error localizedDescription]);
             }
             NSLog(@"%f",[self.currentAudioSession outputVolume]);
         });
+        
+        
     });
-    
-    
-
-    
     
 }
 
@@ -241,17 +264,19 @@
 
 -(void)pauseAudio {
     [self.myPlayer pause];
+    self.animationImage.image = nil;
     self.statusLabel.text = @"";
     NSLog(@"%f",[self.myPlayer rate]);
     if (self.myPlayer.rate == 0.0) {
         [self.playOrPauseButton setImage:[UIImage imageNamed:@"Play.png"] forState:(UIControlStateNormal)];
         NSLog(@"titleLabel: %@",[self.playOrPauseButton titleLabel]);
     }
-    
     if (self.myPlayer) {
         self.myPlayer = nil;
     }
-    
+    self.statusLabel.text = @"Goodbye";
+    [self.statusLabel.layer removeAllAnimations];
+    [self.homeStream.layer removeAllAnimations];
 }
 
 @end
