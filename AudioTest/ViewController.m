@@ -68,6 +68,7 @@
 
 -(void) showHideNavbar:(id) sender
 {
+  
     // write code to show/hide nav bar here
     // check if the Navigation Bar is shown
     if (self.navigationController.navigationBar.hidden == NO)
@@ -84,7 +85,7 @@
         [self animate];
     }
     
-    CGSize mySize = CGSizeMake(10, 10);
+   
     
     
 }

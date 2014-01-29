@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "iPadViewController.h"
+#import "ViewController.h"
+
 
 
 

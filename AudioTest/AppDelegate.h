@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "ViewController.h"
-#include "iPadViewController.h"
-#include "TableViewController.h"
+@class ViewController;
+@class iPadViewController;
+@class TableViewController;
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 KPX. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-@import AVFoundation;
-@import AudioToolbox;
-@import MediaPlayer;
+@import UIKit;
+@import  AVFoundation;
+@class  AudioToolbox;
+@import  MediaPlayer;
 
 @interface ViewController : UIViewController <NSURLConnectionDataDelegate, NSURLConnectionDelegate, AVAudioSessionDelegate> {
     
@@ -25,7 +25,7 @@
 @property (nonatomic,strong) NSURLRequest *audioRequest;
 @property (nonatomic, strong) NSURLConnection *audioConnection;
 @property (strong, nonatomic) AVPlayer *myPlayer;
-@property (nonatomic, strong)   MPVolumeView *volumeView;
+@property (nonatomic, strong) MPVolumeView *volumeView;
 @property (nonatomic,strong) MPMusicPlayerController *musicController;
 @property (nonatomic, strong) AVAudioSession *currentAudioSession;
 @property (strong, nonatomic) IBOutlet UIButton *playOrPauseButton;

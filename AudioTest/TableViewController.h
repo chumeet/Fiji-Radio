@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RadioStation.h"
+@class RadioStation;
 
 
 @interface TableViewController : UITableViewController

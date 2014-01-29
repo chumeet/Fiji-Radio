@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 KPX. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 @import AVFoundation;
 @import AudioToolbox;
 @import MediaPlayer;
