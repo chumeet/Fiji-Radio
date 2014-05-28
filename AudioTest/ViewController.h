@@ -11,6 +11,8 @@
 @class  AudioToolbox;
 @import  MediaPlayer;
 
+#import "AutoScrollLabel.h"
+
 @interface ViewController : UIViewController <NSURLConnectionDataDelegate, NSURLConnectionDelegate, AVAudioSessionDelegate> {
     
     float fileLength;
@@ -36,6 +38,12 @@
 @property (nonatomic, strong) NSString *homePage;
 @property (strong, nonatomic) IBOutlet UILabel *connectionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *homeStream;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
+@property (nonatomic) BOOL isPlaying;
+@property (strong, nonatomic) IBOutlet UILabel *trackLabel;
+@property (strong, nonatomic) IBOutlet AutoScrollLabel *trackScroll;
+
+-(ViewController *) currentViewController;
 
 
 
@@ -48,6 +56,8 @@
 -(void) audioSessionInterrupted:(NSNotification *) notification;
 -(void)playAudio:(NSURL *) url;
 -(void)pauseAudio;
--(void) animate;
+-(void)animate;
+
+
 
 @end

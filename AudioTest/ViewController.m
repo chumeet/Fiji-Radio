@@ -16,50 +16,51 @@
 
 @implementation ViewController
 
+
 -(void) animate {
     
-    [UIView animateWithDuration:5.5 delay:(0.0) options:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAutoreverse) animations: ^{
-        self.statusLabel.frame = CGRectMake(15, 267, 185, 21);
-        self.statusLabel.alpha = 1;
-        [UIView setAnimationRepeatCount:5.5];
+    [UIView animateWithDuration:2.5 delay:(0.0) options:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAutoreverse) animations: ^{
+        
+        self.trackLabel.alpha = 0;
+        
         
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:2.5 animations:^{
-            self.statusLabel.frame = CGRectMake(129, 267, 185, 21);
-            self.statusLabel.alpha = 1;
+            
+            self.trackLabel.alpha = 1;
         }];
     }];
     
-    [UIView animateWithDuration:5.5 delay:(0.0) options:(UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAutoreverse) animations: ^{
-        self.homeStream.frame = CGRectMake(196, 278, 128, 21);
-        self.homeStream.alpha = 1;
-        [UIView setAnimationRepeatCount:5.5];
-        
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:2.5 animations:^{
-            self.homeStream.frame = CGRectMake(5, 278, 128, 21);
-            self.homeStream.alpha = 1;
-            NSLog(@"Animation completeion block called");
-        }];
-    }];
+
     
     
 }
 
 -(void) viewWillAppear:(BOOL)animated {
-    [self.view setBackgroundColor:[UIColor blackColor]];
+     
     [[UIApplication sharedApplication]beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
     
-    self.volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake( 85, 330, 150, 60)];
+    if (self.animationImage != nil) {
+        self.playOrPauseButton.imageView.image = [UIImage imageNamed:@"Play.png"];
+    }
+    
+    self.volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake( 80, 348, 160, 17)];
     self.currentAudioSession = [AVAudioSession sharedInstance];
     [self.volumeView setShowsRouteButton:YES];
     UIImage *sliderImage = [UIImage imageNamed:@"slider.png"];
-    UIImage *smallSlider = [UIImage imageWithCGImage:sliderImage.CGImage scale:4 orientation:sliderImage.imageOrientation];
+    UIImage *smallSlider = [UIImage imageWithCGImage:sliderImage.CGImage scale:2 orientation:sliderImage.imageOrientation];
+    UIImage *soundSliderBG = [UIImage imageNamed:@"soundsliderbg.png"];
+    UIImage *soundSlider = [UIImage imageNamed:@"soundslider.png"];
+    UIImage *smallSoundSliderBG = [UIImage imageWithCGImage:soundSliderBG.CGImage scale:3.5 orientation:soundSliderBG.imageOrientation];
+    UIImage *smallSoundSlider = [UIImage imageWithCGImage:soundSlider.CGImage scale:3.5 orientation:soundSlider.imageOrientation];
+    [self.volumeView setMaximumVolumeSliderImage:smallSoundSliderBG forState:UIControlStateNormal];
+    [self.volumeView setMinimumVolumeSliderImage:smallSoundSlider forState:UIControlStateNormal];
     [self.volumeView setVolumeThumbImage:smallSlider forState:UIControlStateNormal];
     [self.view addSubview:self.volumeView];
     [self.nameLabel setText:self.stationName];
     [self.homePageLabel setText:self.homePage];
+    [self.trackScroll scroll];
     
     
 }
@@ -75,14 +76,14 @@
     {
         // hide the Navigation Bar
         [self.navigationController setNavigationBarHidden:YES animated:YES];
-        [self animate];
+       
     }
     // if Navigation Bar is already hidden
     else if (self.navigationController.navigationBar.hidden == YES)
     {
         // Show the Navigation Bar
         [self.navigationController setNavigationBarHidden:NO animated:YES];
-        [self animate];
+       
     }
     
    
@@ -107,6 +108,8 @@
     [self becomeFirstResponder];
 }
 
+
+
 -(void) remoteControlReceivedWithEvent:(UIEvent *)event {
     if (event.type == UIEventTypeRemoteControl) {
         
@@ -130,7 +133,12 @@
     }
 }
 
-
+-(ViewController *)currentViewController {
+    
+    ViewController *viewControllerToReturn = [[ViewController alloc]init];
+    viewControllerToReturn = self;
+    return viewControllerToReturn;
+}
 
 - (void)viewDidLoad
 {
@@ -139,17 +147,29 @@
                                           initWithTarget:self action:@selector(showHideNavbar:)];
     [self.view addGestureRecognizer:tapGesture];
     
+    UIImage *settingsImage = [UIImage imageNamed:@"settings.png"];
+    NSData *settingsImageData = UIImagePNGRepresentation(settingsImage);
+    UIImage *scaledSettingsImage = [UIImage imageWithData:settingsImageData scale:2.0];
+    [self.settingsButton setImage:scaledSettingsImage];
+    
+    
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication]delegate];
     appDelegate.myController = self;
     self.audioData = [[NSMutableData alloc]init];
     [self.activityOutlet setHidesWhenStopped:YES];
-    self.musicController = [MPMusicPlayerController iPodMusicPlayer];
-    [self.musicController beginGeneratingPlaybackNotifications];
+
         // Do any additional setup after loading the view, typically from a nib.
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(audioSessionInterrupted:)name:AVAudioSessionInterruptionNotification object:nil];
     
+    [self.trackScroll scroll];
     
+    if (self.animationImage != nil ) {
+        self.playOrPauseButton.imageView.image = [UIImage imageNamed:@"Play.png"];
+    }
+  
+  
+  
 }
 
 -(void) audioSessionInterrupted:(NSNotification *) notification {
@@ -176,7 +196,7 @@
         }
         
         [self playAudio:self.audioURL];
-        [self animate];
+        
     }
     }
 
@@ -198,7 +218,7 @@
         [self pauseAudio];
     }
     else {
-        [self.playOrPauseButton setImage:[UIImage imageNamed:@"Pause.png"] forState:(UIControlStateNormal)];
+        [self.playOrPauseButton setImage:[UIImage imageNamed:@"Play.png"] forState:(UIControlStateNormal)];
         [self playAudio:self.audioURL];
         
     }
@@ -248,7 +268,7 @@
     }
     [self checkStatusOfPlayer];
     
-    [self animate];
+  
  
 }
 
@@ -273,10 +293,21 @@
             [self.currentAudioSession setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
             [self.activityOutlet stopAnimating];
             [self.myPlayer play];
-            self.statusLabel.text = [NSString stringWithFormat:@"streaming - %iHz", (int)[self.currentAudioSession sampleRate]];
+            self.isPlaying = YES;
+            
+            AVPlayerItem *songItem = [self.myPlayer currentItem];
+            [songItem addObserver:self forKeyPath:@"timedMetadata" options:NSKeyValueObservingOptionNew context:nil];
+            [self animate];
+            
+            
+           
+            
+            
+            
+//            self.statusLabel.text = [NSString stringWithFormat:@"streaming - %iHz", (int)[self.currentAudioSession sampleRate]];
             self.connectionLabel.text = @"";
-            self.homeStream.text = @"Live Radio";
-            NSURL *animationURL = [[NSBundle mainBundle] URLForResource:@"equalizer" withExtension:@"gif"];
+//            self.homeStream.text = @"Live Radio";
+            NSURL *animationURL = [[NSBundle mainBundle] URLForResource:@"equalizer4" withExtension:@"gif"];
             self.animationImage.image = [UIImage animatedImageWithAnimatedGIFData:[NSData dataWithContentsOfURL:animationURL]];
             if (error){
                 NSLog(@"%@",[error localizedDescription]);
@@ -288,6 +319,36 @@
     });
 
 }
+
+- (void) observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object
+                         change:(NSDictionary*)change context:(void*)context {
+    
+    if ([keyPath isEqualToString:@"timedMetadata"])
+    {
+        AVPlayerItem* playerItem = object;
+        
+        for (AVMetadataItem* metadata in playerItem.timedMetadata)
+        {
+            NSLog(@"\nkey: %@\nkeySpace: %@\ncommonKey: %@\nvalue: %@", [metadata.key description], metadata.keySpace, metadata.commonKey, metadata.stringValue);
+            self.trackLabel.text = [NSString stringWithFormat:@"%@",metadata.stringValue];
+            [self.trackScroll setScrollSpeed:22.0];
+            
+            if ([[self.currentViewController stationName] isEqualToString:@"Fiji Bhajan Radio"]) {
+            self.trackScroll.text = [NSString stringWithFormat:@"%@ - Fiji Bhajan Radio - Special thanks to Jawahar Lal",metadata.stringValue];
+            }
+            else if ([[self.currentViewController stationName] isEqualToString:@"Radio Dhadkan"] ) {
+                AVMetadataItem *metaData = [playerItem.timedMetadata objectAtIndex:0];
+                self.trackScroll.text = [NSString stringWithFormat:@"%@ - Radio Dhadkan - Live from Australia - http://radiodhadkan.com.au", metaData.stringValue];
+            }
+            
+            [self.trackScroll setTextColor:[UIColor lightGrayColor]];
+            [self.trackScroll setFont:[UIFont fontWithDescriptor:[UIFontDescriptor fontDescriptorWithName:@"Futura" size:10.0] size:10.0]];
+            [self.trackScroll readjustLabels];
+            [self.trackScroll scroll];
+        }
+    }
+}
+
 
 
 -(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -311,16 +372,18 @@
     self.statusLabel.text = @"";
     NSLog(@"%f",[self.myPlayer rate]);
     if (self.myPlayer.rate == 0.0) {
-        [self.playOrPauseButton setImage:[UIImage imageNamed:@"Play.png"] forState:(UIControlStateNormal)];
+        [self.playOrPauseButton setImage:[UIImage imageNamed:@"Pause.png"] forState:(UIControlStateNormal)];
         NSLog(@"titleLabel: %@",[self.playOrPauseButton titleLabel]);
-        self.homeStream.text = @"Goodbye";
+//        self.homeStream.text = @"Goodbye";
         
     }
     if (self.myPlayer) {
         self.myPlayer = nil;
     }
+    self.isPlaying = NO;
+    self.trackScroll.text = @"";
     
-    [self.statusLabel.layer removeAllAnimations];
+    [self.trackLabel.layer removeAllAnimations];
     [self.homeStream.layer removeAllAnimations];
 }
 

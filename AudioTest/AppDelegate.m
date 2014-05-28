@@ -17,9 +17,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
-  [[UINavigationBar appearance]setBackgroundImage:[UIImage imageNamed:@"background.jpg"] forBarMetrics:UIBarMetricsDefault];
+    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
+    [titleBarAttributes setValue:[UIFont fontWithName:@"Futura" size:16] forKey:NSFontAttributeName];
+    [titleBarAttributes setValue:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    [[UINavigationBar appearance] setTitleTextAttributes:titleBarAttributes];
+    
+    UIImage *backArrow = [UIImage imageNamed:@"backarrow.png"];
+    NSData *imageData = UIImagePNGRepresentation(backArrow);
+    UIImage *backImage = [UIImage imageWithData:imageData scale:2.0];
+    [[UINavigationBar appearance]setBackIndicatorImage:backImage];
+    [[UINavigationBar appearance]setBackIndicatorTransitionMaskImage:backImage];
+    
    
+    [[UINavigationBar appearance]setBackgroundImage:[UIImage imageNamed:@"topbanner.png"] forBarMetrics:UIBarMetricsDefault];
+    
    
     
     // Override point for customization after application launch.
@@ -44,10 +55,7 @@
     
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 
-    [UIView setAnimationsEnabled:YES];
-    [self.myController animate];
-    [self.iPadController animate];
-    
+
     
 }
 

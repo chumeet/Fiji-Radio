@@ -11,6 +11,8 @@
 @import AudioToolbox;
 @import MediaPlayer;
 
+#import "AutoScrollLabel.h"
+
 @interface iPadViewController : UIViewController <NSURLConnectionDataDelegate, NSURLConnectionDelegate, AVAudioSessionDelegate> {
     
     float fileLength;
@@ -36,6 +38,9 @@
 @property (nonatomic, strong) NSString *homePage;
 @property (strong, nonatomic) IBOutlet UILabel *connectionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *homeStream;
+@property (nonatomic) BOOL isPlaying;
+@property (strong, nonatomic) IBOutlet UILabel *trackLabel;
+@property (strong, nonatomic) IBOutlet AutoScrollLabel *trackScroll;
 
 
 
